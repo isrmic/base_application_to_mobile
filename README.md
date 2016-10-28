@@ -1,5 +1,5 @@
 #base application mobile (web)
-Esta é uma pequena base de uma aplicação web que pode ser passada para mobile em aplicativos javascript. Foi feito esta base web para testar as funções e os templates afim de poder facilmente fazer alteracções futuramente e passar para versão mobile .  
+Esta é uma pequena base de uma aplicação web que pode ser passada para mobile em aplicativos javascript. Foi feito esta base web para testar as funções e os templates afim de poder facilmente fazer alteracções futuramente e passar para versão [mobile](https://github.com/isrmic/Universal_APP_SC).  
 
 Para visualisar o projeto use como base de dados este: [Stock Control](https://github.com/isrmic/Stock_Control)
 
