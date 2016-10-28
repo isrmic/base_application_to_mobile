@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href = "css/bootstrap.min.css">
+    <link rel="stylesheet" href = "css/flat-ui.css">
+    <link rel="stylesheet" href = "css/style.css">
+
+    <script src = "js/vue.min.js"></script>
+    <script src = "js/vue-resource.min.js"></script>
+    <script src = "js/jquery.min.js"></script>
+    <script src = "js/bootstrap.min.js"></script>
+    <script src = "js/flat-ui.min"></script>
+
+
+
+    <title> Aplication To Mobile </title>
+
+  </head>
+
+  <body>
+
+    <div class="container">
+
+        <div id="appcontrol" class="container-fluid">
+
+            <div>
+               <h3 class="page-header"> Adicionar Produto </h3>
+
+                 <form onsubmit="return false;">
+
+                  <input type = "hidden" name = "key" v-bind:value = "Key">
+
+                    <div class="row">
+
+                        <div class="form-group col-md-3">
+                          <label for="name">Nome : </label>
+                          <input type="text" name = "name_prod" v-model = "Produto.Name" maxlength="16" required = "require" class="form-control" id="name">
+                        </div>
+
+
+                        <div class="form-group col-md-2">
+                          <label for="price">Preço : </label>
+                          <input type="number" step="0.01" name = "price_prod" v-model = "Produto.Price" required = "require" class="form-control" id="price">
+                        </div>
+
+
+                      <div class="form-group col-md-2">
+                        <label for="count">Quantidade : </label>
+                        <input type="number" name = "count_prod" v-model = "Produto.Count" required = "require" class="form-control" id="count">
+                      </div>
+
+
+                      <div class="form-group col-md-2">
+                        <label for="min_c">Minimo : </label>
+                        <input type="number" name = "min_count" v-model = "Produto.Min_Count" required = "require" class="form-control" id="min_c">
+                      </div>
+
+                      <div class="form-group col-md-3">
+                        <label for="code_p">Código Produto : </label>
+                        <div class="input-group">
+                          <span class="input-group-addon" id = "code_baricon"><i class="glyphicon glyphicon-barcode"></i></span>
+                          <input type="text" name = "code_prod" v-model = "Produto.Code" maxlength = "16" ariadescribedby = "code_baricon" required = "require" class="form-control" id="code_p">
+                      </div>
+                      </div>
+
+                      <div class="form-group col-md-2">
+                        <label for="campo5">Fornecedor : </label>
+                        <select id = "campo5" name = "provider" class="form-control">
+
+                            <option value="0"> SELECT </option>
+
+                              <option v-for = "prov in provs" value = "prov.ID"> {{ prov.Name }}  </option>
+
+                        </select>
+                      </div>
+
+
+                      </div>
+
+                      <div class="row">
+
+                        <div class="form-group col-md-10">
+                          <label for="campo3">Descrição : </label>
+                          <input type="text" name = "desc_prod" required = "require" class="form-control" id="campo3">
+                        </div>
+
+
+                        </div>
+
+                  <hr />
+
+                  <div id="actions" class="row">
+                    <div class="col-md-12">
+
+                      <input type = "button" class="btn btn-success"  value = "Adicionar">
+                      <input type = "button" class="btn btn-default" value = "Cancelar">
+
+                    </div>
+                  </div>
+                </form>
+            </div>
+
+      </div>
+   </div>
+
+
+      <script src = "js/application.js"></script>
+
+  </body>
+
+</html>

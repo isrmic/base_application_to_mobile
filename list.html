@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href = "css/bootstrap.min.css">
+    <link rel="stylesheet" href = "css/flat-ui.css">
+    <link rel="stylesheet" href = "css/style.css">
+
+    <script src = "js/vue.min.js"></script>
+    <script src = "js/vue-resource.min.js"></script>
+    <script src = "js/jquery.min.js"></script>
+    <script src = "js/bootstrap.min.js"></script>
+    <script src = "js/flat-ui.min"></script>
+
+
+    <title> Aplication To Mobile </title>
+
+  </head>
+
+  <body>
+
+    <div class="container">
+
+        <div id="appcontrol" class="container-fluid">
+
+          <!--
+
+          @  O TEMPLATE A SER EXIBIDO NA LISTAGEM DE PRODUTOS COMEÇA AQUI !!!
+          @  ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+
+         -->
+         <div>
+    <div v-show="isOk">
+        <h2 class="page-header">{{TitlePage}}</h2>
+        <table class="table table-hover table-striped table-bordered">
+            <tbody>
+                <tr>
+                    <td> Nome </td>
+                    <td> Preco </td>
+                    <td> Descricao </td>
+                    <td> Quantidade </td>
+                    <td colspan="3">
+                        <div class="input-group">
+                            <input class="form-control" @keydown.enter="__init__" name="prod" v-model="prod" id="navbarInput-01" type="search" placeholder="Search"> <span class="input-group-btn"> <button @click = "__init__" class="btn"><span class="fui-search"></span></button>
+                            </span>
+                        </div>
+                    </td>
+                </tr>
+                <tr v-if="Produtos.length > 0" v-for="Produto in Produtos">
+                    <td>{{Produto.Name}}</td>
+                    <td>{{Produto.Price | dollarsign}}</td>
+                    <td>{{Produto.Description}}</td>
+                    <td v-bind:class="Islacking(Produto.Count_P, Produto.Min_Count)">{{Produto.Count_P}}</td>
+                    <td>
+                        <button @click="viewProd(Produto.ID)" class="btn btn-inverse btn-xs"> view </button>
+                    </td>
+                    <td>
+                        <button @click="editProd(Produto.ID)" class="btn btn-inverse btn-xs"> edit </button>
+                    </td>
+                    <td>
+                        <button @click="removeprod(Produto.ID)" class="btn btn-inverse btn-xs"> remove </button>
+                    </td>
+                    <td v-if="parseInt(Produto.Count_P) < parseInt(Produto.Min_Count)">
+                        <label class="label label-danger"> Em Falta {{Produto.Min_Count}}</label>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div v-if="Produtos.length == 0"> Nenhum Produto Foi Encontrado !!!
+            <hr/> </div>
+        <button @click="gotoaddprod" class="btn btn-info"> <span> <i class = "glyphicon glyphicon-plus"></i> </span> </button>
+        <button @click="__init__(true)" class="btn btn-primary"> <span> <i class = "glyphicon glyphicon-refresh"></i> </span> </button>
+        <button class="btn btn-default">Adicionar Fornecedor</button>
+    </div>
+</div>
+        <!--
+
+          @ ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+          @ O TEMPLATE A SER EXIBIDO NA LISTAGEM DE PRODUTOS TERMINA AQUI !!!
+
+       -->
+
+    </div>
+  </div>
+
+
+
+      <script src = "js/list.js"></script>
+      <script src = "js/application.js"></script>
+
+  </body>
+
+
+</html>

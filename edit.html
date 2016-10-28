@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href = "css/bootstrap.min.css">
+    <link rel="stylesheet" href = "css/flat-ui.css">
+    <link rel="stylesheet" href = "css/style.css">
+
+    <script src = "js/vue.min.js"></script>
+    <script src = "js/vue-resource.min.js"></script>
+    <script src = "js/jquery.min.js"></script>
+    <script src = "js/bootstrap.min.js"></script>
+    <script src = "js/flat-ui.min"></script>
+
+
+    <title> Aplication To Mobile </title>
+
+  </head>
+
+  <body>
+
+    <div class="container">
+
+        <div id="appcontrol" class="container-fluid">
+
+          <!--
+
+          @  O TEMPLATE A SER EXIBIDO NA LISTAGEM DE PRODUTOS COMEÇA AQUI !!!
+          @  ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+
+         -->
+
+          <div v-show = "isOk" v-for = "Produto in Produtos">
+
+                <h3 class="page-header"> Editar Produto  <h1> {{ Produto.ID }} <small>  {{ Produto.Name }} </small></h1> </h3>
+
+                <form action="../updateprod" method = "post">
+
+                <input type = "hidden" name = "prod_ID" v-bind:value = "Produto.ID">
+                <input type = "hidden" name = "key" v-bind:value = "Produto.Key">
+
+                <div class="row">
+
+                   <div class="form-group col-md-3">
+                     <label for="campo1">Nome : </label>
+                     <input type="text" name = "name_prod" v-model = "Produto.Name" required = "require" class="form-control" id="campo1">
+                   </div>
+
+                   <div class="form-group col-md-2">
+                     <label for="campo2">Preço : </label>
+                     <input type="number" step = "0.01" name = "price_prod" v-model = "Produto.Price"  required = "require" class="form-control" id="campo2">
+                   </div>
+
+                   <div class="form-group col-md-2">
+                     <label for="campo3">Quantidade : </label>
+                     <input type="number" name = "Count_Prod" v-model = "Produto.Count_P"  required = "require" class="form-control" id="campo3">
+                   </div>
+
+                   <div class="form-group col-md-2">
+                     <label for="min_c">Minimo : </label>
+                     <input type="number" name = "min_count" v-model = "Produto.Min_Count" required = "require" class="form-control" id="min_c">
+                   </div>
+
+                   <div class="form-group col-md-3">
+                     <label for="campo4">Código Produto : </label>
+                     <div class="input-group">
+                     <span class="input-group-addon" id="codebar"><i class="glyphicon glyphicon-barcode"></i></span>
+                     <input type="text" name = "code_prod" aria-describedby="codebar" v-model = "Produto.Code_Produt"  maxlength = "16" required = "require" class="form-control" id="campo4">
+                   </div>
+                   </div>
+
+                   <div class="form-group col-md-2">
+                     <label for="campo5">Fornecedor : </label>
+
+                     <select id = "campo5" name = "provider" class="form-control">
+                         <option v-bind:value = "Produto.ID" > SELECT </option>
+
+                            <option v-for = "provs in Produto.prov" v-bind:value = "provs.ID" > {{ provs.Name }}  -- {{ provs.Company }} </option>
+
+                     </select>
+
+                   </div>
+
+                 </div>
+
+
+
+                 <div class = "row">
+
+                   <div class="form-group col-md-10">
+                     <label for="campo4">Descrição : </label>
+                     <input type="text" name = "desc_prod" v-model = "Produto.Description"  required = "require" class="form-control" id="campo4">
+                   </div>
+
+
+
+
+
+                </div>
+
+                <hr />
+
+                <div id="actions" class="row">
+                <div class="col-md-12">
+                 <button type="submit" class="btn btn-success">Salvar</button>
+                 <a href="#" class="btn btn-default">Cancelar</a>
+                </div>
+                </div>
+                </form>
+
+
+         </div>
+
+         <!--
+
+           @ ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+           @ O TEMPLATE A SER EXIBIDO NA LISTAGEM DE PRODUTOS TERMINA AQUI !!!
+
+        -->
+
+
+      </div>
+   </div>
+
+      <script src = "js/edit.js"></script>
+      <script src = "js/application.js"></script>
+
+  </body>
+
+</html>

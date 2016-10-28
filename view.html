@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href = "css/bootstrap.min.css">
+    <link rel="stylesheet" href = "css/flat-ui.css">
+    <link rel="stylesheet" href = "css/style.css">
+
+    <script src = "js/vue.min.js"></script>
+    <script src = "js/vue-resource.min.js"></script>
+    <script src = "js/jquery.min.js"></script>
+    <script src = "js/bootstrap.min.js"></script>
+    <script src = "js/flat-ui.min"></script>
+
+
+    <title> Aplication To Mobile </title>
+
+  </head>
+
+  <body>
+
+    <div class="container">
+
+        <div id="appcontrol" class="container-fluid">
+
+          <!--
+
+          @  O TEMPLATE A SER EXIBIDO NA LISTAGEM DE PRODUTOS COMEÇA AQUI !!!
+          @  ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+
+         -->
+
+          <div v-show = "isOk" v-for = "Produto in Produtos">
+
+                <div class="page-header">
+
+                    <h1> {{ Produto.ID }} <small> {{ Produto.Name }} </small></h1>
+
+                </div>
+
+                <ul>
+                    <div class = "row">
+                   <li>
+                      <b>Valor: </b> R$ {{ Produto.Price }}
+                   </li>
+                   <li>
+                      <b>Descrição :</b> {{ Produto.Description }}
+                   </li>
+                   <li>
+                      <b>Quantidade em estoque: </b> {{ Produto.Count_P }}
+                   </li>
+                    </div>
+                  </ul>
+                  <ul>
+                    <div class="row">
+                   <li>
+                      <b>Código Produto: </b> {{ Produto.Code_Produt }}
+                   </li>
+                   <li>
+
+                      <b>Inserido Em: </b> {{ Produto.insertData }}
+                   </li>
+                   <li>
+
+                      <b>Última Modificação: </b> {{ Produto.dataModified }}
+                   </li>
+                 </div>
+                </ul>
+
+                <hr />
+
+
+                <div class = "row">
+
+                    <input type = "button" id = "edit" class = "btn btn-warning"   value  = "Editar">
+                    <input type = "button" id = "remove" class = "btn btn-danger"  value  = "Remove">
+                    <a type = "button" href = "#" class = "btn btn-default"> Voltar </a>
+
+                </div>
+
+         </div>
+
+         <!--
+
+           @ ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+           @ O TEMPLATE A SER EXIBIDO NA LISTAGEM DE PRODUTOS TERMINA AQUI !!!
+
+        -->
+      </div>
+   </div>
+
+      <script src = "js/view.js"></script>
+      <script src = "js/application.js"></script>
+
+  </body>
+
+</html>
